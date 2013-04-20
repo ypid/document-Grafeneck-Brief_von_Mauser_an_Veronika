@@ -1,0 +1,40 @@
+\ProvidesFile{address_Hermann.lco}
+	[2012/02/12 v1.00 letter-class-option]
+
+\LoadLetterOption{address_Robin}
+\setkomavar*{fromemail}{Email (des Autors)\usekomavar{emailseparator}}
+\setkomavar*{fromurl}{Blog (des Autors)\usekomavar{urlseparator}}
+\usepackage{docExtensionsRS,schoolRS}
+\renewcommand{\LanguageURLlongExtension}{}
+\renewcommand{\printGitURLlong}{%
+	\ifthenelse{\equal{\GitURL}{}}{}{%
+		\LanguageGitURLlong \\ \url{\GitURL}
+	}%
+}
+\SetAUTHOR{1}{}
+\SetCLASS{12}
+\SetCREATEDATE{2012}{03}{01}{17}{06}{00}		%% {YYYY}{MM}{DD}{HH}{MM}{SS}
+\choosedefaultlicense
+
+\KOMAoptions{
+%	pagenumber		= headright,		%% Seitenzahlen
+	fromphone		= false,		%% Setzen der Telefonnummer des Absenders
+	fromemail		= false,		%% Setzen der eMail-Adresse des Absenders
+	fromurl			= true,			%% Setzen einer Homepageadresse des Absenders
+	fromlogo		= false,		%% Absenderlogo (Firmenlogo) wird in den Brief eingefügt
+%	frombank		= true
+}
+
+
+\setkomavar{fromphone}{}
+\setkomavar{fromlogo}{\includegraphics[width=3cm]{files/images/09_-_jurassic_alb_01}}
+\setkomavar{fromname}{Hermann Mauser}		%  (Protagonist vom Roman Grafeneck)
+\setkomavar{place}{Buttenhausen}
+\setkomavar{fromaddress}{Musterstraße 42\\ 72525 \usekomavar{place}}
+\renewcommand{\raggedsignature}{\raggedright}
+\makeatletter\@setplength{sigbeforevskip}{1.3cm}\makeatother
+\setkomavar{signature}{\hspace{2em}\usekomavar{fromname} \\[-3.6em]
+	\hspace{0.3em}\includegraphics[width=6cm]{files/signature/2-bg-rm}\vspace{-0.3cm}}
+
+\endinput
+
